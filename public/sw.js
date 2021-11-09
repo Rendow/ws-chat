@@ -10,9 +10,10 @@ this.addEventListener('install', (e) => {
                     '/static/js/0.chunk.js',
                     '/static/js/bundle.js',
                     '/static/js/vendors~main.chunk.js',
-                    'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap ',
+                    '/static/media/square_320_431787d41442021a815067689754243d.ef24912b.jpg',
+                    'https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2 ',
+                    '/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap ',
                     '/manifest.json',
-                    '/favicon.ico',
                     '/logo192.png',
                     '/index.html',
                     '/'
