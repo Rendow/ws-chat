@@ -11,9 +11,11 @@ this.addEventListener('install', (e) => {
                     '/static/js/bundle.js',
                     '/static/js/vendors~main.chunk.js',
                     '/static/media/square_320_431787d41442021a815067689754243d.ef24912b.jpg',
-                    'https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2 ',
-                    '/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap ',
+                    '/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2 ',
+                    'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
+                    'https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2',
                     '/manifest.json',
+                    '/favicon.ico',
                     '/logo192.png',
                     '/index.html',
                     '/'
@@ -24,12 +26,16 @@ this.addEventListener('install', (e) => {
 })
 
 this.addEventListener('fetch', (e) => {
-    e.respondWith(
-        caches.match(e.request)
-            .then((res) => {
-                if(res){
-                    return res
-                }
-            })
-    )
+    if(!navigator.onLine){
+        e.respondWith(
+            caches.match(e.request)
+                .then((res) => {
+                    if(res){
+                        return res
+                    }
+                    let requestUrl = e.request.clone()
+                    fetch(requestUrl)
+                })
+        )
+    }
 })

@@ -125,9 +125,21 @@
 
 
 .formGroup {
+    margin-top: 10px;
     position: relative;
     display: flex;
     justify-content: center;
+    .alert{
+        position: absolute;
+        width: 910px;
+        top: 0;
+        left: -2 px;
+        right: -13 px;
+        bottom: 0px;
+        z-index: 4;
+        content: '';
+        border-radius: 0;
+    }
     .textarea {
         width: 100%;
         background: #3A3A3A;

@@ -3,6 +3,7 @@ import s from './Chat.module.scss'
 import Avatar from '@mui/material/Avatar';
 import photo from '../common/assets/img/square_320_431787d41442021a815067689754243d.jpg'
 import { FaTelegramPlane } from 'react-icons/fa';
+import {Alert} from "@mui/material";
 
 function ChatPage() {
 
@@ -125,6 +126,8 @@ function Message({message,time,local}) {
 function AddMessageForm({setMessages, sendMessage,readyStatus }) {
     const [message, setMessage] = useState('')
 
+    let connection = navigator.onLine
+    console.log(connection)
     const localMessage = (message) => {
 
         let newMessage = {
@@ -150,7 +153,9 @@ function AddMessageForm({setMessages, sendMessage,readyStatus }) {
     let iconClass = !!message ? s.icon + ' ' + s.activeIcon : s.icon
 
     return <div className={s.formGroup}>
+        { !connection &&  <Alert className={s.alert} severity="warning">App working in offline mod, check the internet connection</Alert>}
         <textarea
+                  disabled={ readyStatus !== 'ready' || !connection}
                   placeholder={'Enter text message...'}
                   className={s.textarea}
                   value={message}
@@ -158,10 +163,8 @@ function AddMessageForm({setMessages, sendMessage,readyStatus }) {
         />
         <FaTelegramPlane
             className={iconClass}
-            disabled={readyStatus !== 'ready'}
             onClick={sendMessageHandler}
         />
-
     </div>;
 }
 
