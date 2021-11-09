@@ -15,7 +15,6 @@ this.addEventListener('install', (e) => {
                     'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
                     'https://fonts.gstatic.com/s/inter/v3/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2',
                     '/manifest.json',
-                    '/6775473e5f288e76b0e1.hot-update.json',
                     '/favicon.ico',
                     '/logo192.png',
                     '/index.html',
@@ -27,12 +26,16 @@ this.addEventListener('install', (e) => {
 })
 
 this.addEventListener('fetch', (e) => {
-    e.respondWith(
-        caches.match(e.request)
-            .then((res) => {
-                if(res){
-                    return res
-                }
-            })
-    )
+    if(!navigator.onLine){
+        e.respondWith(
+            caches.match(e.request)
+                .then((res) => {
+                    if(res){
+                        return res
+                    }
+                    let requestUrl = e.request.clone()
+                    fetch(requestUrl)
+                })
+        )
+    }
 })
