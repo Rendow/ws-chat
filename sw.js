@@ -33,8 +33,8 @@ this.addEventListener('fetch', (e) => {
                     if(res){
                         return res
                     }
-                    let requestUrl = e.request.clone()
-                    fetch(requestUrl)
+                    // let requestUrl = e.request.clone()
+                    // fetch(requestUrl)
                 })
         )
     }
