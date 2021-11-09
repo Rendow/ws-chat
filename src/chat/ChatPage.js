@@ -127,7 +127,6 @@ function AddMessageForm({setMessages, sendMessage,readyStatus }) {
     const [message, setMessage] = useState('')
 
     let connection = navigator.onLine
-    console.log(connection)
     const localMessage = (message) => {
 
         let newMessage = {
@@ -147,7 +146,7 @@ function AddMessageForm({setMessages, sendMessage,readyStatus }) {
     }
 
    const onChangeHandler = (e) => {
-       setMessage(e.currentTarget.value)
+        setMessage(e.currentTarget.value)
     }
 
     let iconClass = !!message ? s.icon + ' ' + s.activeIcon : s.icon
