@@ -1,8 +1,8 @@
 {
-  "name": "ws-vol",
+  "name": "ws-chat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rendow.github.io/ws-vol/",
+  "homepage": "https://rendow.github.io/ws-chat/",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
